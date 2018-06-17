@@ -15,9 +15,11 @@
     "winjs": "4.4.3"
   },
   "devDependencies": {
+    "marked": "^0.4.0",
     "postcss-selector-parser": "^5.0.0-rc.3",
     "typescript": "^2.9.2",
     "uglify-es": "^3.3.9",
+    "uglify-js": "^3.4.0",
     "vue": "^2.5.16",
     "vue-hot-reload-api": "^2.3.0",
     "vue-template-compiler": "^2.5.16",

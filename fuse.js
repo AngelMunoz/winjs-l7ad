@@ -3,11 +3,12 @@ const {
   FuseBox,
   WebIndexPlugin,
   CSSPlugin,
-  QuantumPlugin,
-  CSSResourcePlugin
+  CSSResourcePlugin,
+  MarkdownPlugin,
+  UglifyJSPlugin
 } = require("fuse-box");
 
-const instruction = `> main.js`
+const instruction = `> main.js + **/*.md`
 
 context(class {
   getConfig() {
@@ -18,17 +19,15 @@ context(class {
       plugins: [
         CSSPlugin(),
         CSSResourcePlugin(),
-        !this.isProduction && WebIndexPlugin({
+        MarkdownPlugin({
+          useDefault: true
+        }),
+        WebIndexPlugin({
           template: './index.html'
         }),
-        this.isProduction && QuantumPlugin({
-          uglify: true,
-          treeshake: true,
-          containedApi: true,
-          bakeApiIntoBundle: "app",
-          manifest: true
-        })
+        this.isProduction && UglifyJSPlugin()
       ],
+      sourceMaps: { project: !this.isProduction },
       useTypescriptCompiler: true,
       allowSyntheticDefaultImports: true,
     });
@@ -58,7 +57,21 @@ task("clean", async context => {
   await src("./dist").clean("dist/").exec();
 });
 
-task("serve", ['clean'], async context => {
+task("dev", ['clean'], async context => {
+  const fuse = context.getConfig();
+  fuse.dev();
+  fuse.bundle("app")
+    .hmr({ reload: true })
+    .watch('src/**')
+    .instructions(instruction);
+  await src('**/**.html', { base: 'src' })
+    .dest('dist/')
+    .exec();
+  await fuse.run()
+})
+
+task("dev:prod", ['clean'], async context => {
+  context.isProduction = true;
   const fuse = context.getConfig();
   fuse.dev();
   fuse.bundle("app")

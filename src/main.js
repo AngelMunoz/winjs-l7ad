@@ -14,7 +14,7 @@ const router = new Router(routes)
 
 
 
-const app = new ApplicationManager();
+export const AppManager = new ApplicationManager();
 Events.get(APPLICATION)
   .once(ON_FIRST_ACTIVATION, function(args) {
     // register routes
@@ -29,7 +29,8 @@ Events.get(APPLICATION)
     }));
   });
 
-app.start();
+AppManager.start();
 
-export const appStorage = new StorageManager(app);
-export default app;
+export const AppStorage = new StorageManager(AppManager);
+
+export default { AppManager, AppStorage };

@@ -68,7 +68,7 @@ class ApplicationManager {
    */
   _onError(args) {
     Emitters.get(APPLICATION).emit(ON_ERROR, args);
-
+    return Emitters.get(APPLICATION).listeners(ON_ERROR).length > 0;
   }
 
   /**

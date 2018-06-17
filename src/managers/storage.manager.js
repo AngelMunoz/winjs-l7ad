@@ -30,7 +30,6 @@ class StorageManager {
   writeText(name, content, type = StorageManager.STORAGE_TYPES.LOCAL) {
     if (this._isWindows) {
       return this._writeTextWindows(name, content, type);
-
     }
     return this._writeTextBrowser(name, content);
   }
@@ -80,7 +79,7 @@ class StorageManager {
   _writeTextBrowser(name, content) {
     return new WinJS.Promise((done, err) => {
       window.localStorage.setItem(name, content);
-      return window.localStorage.getItem(name).length;
+      return done(window.localStorage.getItem(name).length)
     });
   }
 
@@ -112,7 +111,7 @@ class StorageManager {
     return this.exists(name, StorageManager.STORAGE_TYPES.LOCAL)
       .then(exists => {
         if (!exists) { return new WinJS.Promise((done, err) => { err(new Error('File Does not Exist')); }); }
-        return window.localStorage.getItem(name)
+        return window.localStorage.removeItem(name)
       }, error => new WinJS.Promise((done, err) => err(error)));
   }
 

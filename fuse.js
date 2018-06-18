@@ -1,4 +1,5 @@
 const { src, task, context } = require("fuse-box/sparky");
+const gulp = require('gulp');
 const {
   FuseBox,
   WebIndexPlugin,
@@ -34,6 +35,10 @@ context(class {
   }
 })
 
+task("clean", async context => {
+  await src("./dist").clean("dist/").exec();
+});
+
 task("default", ['clean'], async context => {
   const fuse = context.getConfig();
   fuse.bundle("app")
@@ -53,20 +58,26 @@ task("prod", ['clean'], async context => {
   await fuse.run()
 });
 
-task("clean", async context => {
-  await src("./dist").clean("dist/").exec();
+gulp.task('copy:html', function() {
+  return gulp
+    .src('src/**/*.html')
+    .pipe(gulp.dest('./dist'));
 });
 
-task("dev", ['clean'], async context => {
+task('copy:html', [], async context => {
+  await src('**/**.html', { base: 'src' })
+    .dest('dist/')
+    .exec();
+  return gulp.watch('src/**/*.html', ['copy:html']);
+});
+
+task("dev", ['clean', 'copy:html'], async context => {
   const fuse = context.getConfig();
   fuse.dev();
   fuse.bundle("app")
     .hmr({ reload: true })
-    .watch('src/**')
-    .instructions(instruction);
-  await src('**/**.html', { base: 'src' })
-    .dest('dist/')
-    .exec();
+    .watch('src/**/*.js')
+    .instructions(instruction)
   await fuse.run()
 })
 

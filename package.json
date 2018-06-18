@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "eventemitter3": "^3.1.0",
+    "flexboxgrid": "^6.3.1",
     "fuse-box": "^3.2.2",
+    "gulp": "^3.9.1",
     "winjs": "4.4.3"
   },
   "devDependencies": {

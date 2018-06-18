@@ -1,0 +1,49 @@
+.application--background__default {
+    background: linear-gradient(236deg, #4e3e23, #3a240e, #000000);
+    background-size: 600% 600%;
+
+    -webkit-animation: AppBackgroundGradient 31s ease infinite;
+    -moz-animation: AppBackgroundGradient 31s ease infinite;
+    -o-animation: AppBackgroundGradient 31s ease infinite;
+    animation: AppBackgroundGradient 31s ease infinite;
+
+}
+
+@-webkit-keyframes AppBackgroundGradient {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@-moz-keyframes AppBackgroundGradient {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@-o-keyframes AppBackgroundGradient {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+@keyframes AppBackgroundGradient {
+    0%{background-position:87% 0%}
+    50%{background-position:14% 100%}
+    100%{background-position:87% 0%}
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #292a2c; 
+    border-radius: 10px;
+}
+

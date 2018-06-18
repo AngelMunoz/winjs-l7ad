@@ -1,4 +1,6 @@
+import 'flexboxgrid/css/flexboxgrid.css'
 import 'winjs/css/ui-dark.css';
+import './main.css'
 import './managers/navigation.manager';
 import ApplicationManager, { ON_FIRST_ACTIVATION, ON_READY, ON_ERROR } from "./managers/application.manager";
 import Router from "./managers/route.manager";

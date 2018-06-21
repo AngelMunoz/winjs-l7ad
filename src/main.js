@@ -11,7 +11,10 @@ import Home from './pages/home/home';
 import About from './pages/about/about';
 
 
-const routes = [Home, About];
+const routes = [
+  Home, 
+  About
+];
 const router = new Router(routes)
 
 
@@ -19,11 +22,19 @@ const router = new Router(routes)
 export const AppManager = new ApplicationManager();
 Events
   .get(APPLICATION)
-  .once(ON_FIRST_ACTIVATION, function(args) {
+  .once(ON_FIRST_ACTIVATION, function (args) {
     // register routes
     router.definePages();
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register(`/worker.js?${Date.now()}`)
+        .then(function (registration) {
+          console.log('Service worker registration succeeded:', registration);
+        }).catch(function (error) {
+          console.log('Service worker registration failed:', error);
+        });
+    }
   })
-  .once(ON_READY, function(args) {
+  .once(ON_READY, function (args) {
     args.setPromise(WinJS.UI.processAll()
       .then(() => {
         const commands = document.querySelectorAll('.splitview-commands div[data-win-control="WinJS.UI.SplitViewCommand"]');

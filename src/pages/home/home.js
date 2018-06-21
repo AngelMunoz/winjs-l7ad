@@ -2,25 +2,25 @@ import './home.css'
 import * as WinJS from 'winjs'
 
 const posts = new WinJS.Binding.List([
-  { title: 'UWP Apps in Javascript!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Javascript Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Typescript Such An Awesome Tool!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'F# and My Lameness!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Who Do You Even Try!?', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Just one More Time!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Live and Let Live!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Nope, Keep it Going!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { title: 'Surrender Forrender!!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 1, title: 'UWP Apps in Javascript!', tags: 'javascript, uwp', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 2, title: 'Javascript Promises!', tags: 'javascript, promises', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 3, title: 'Typescript Such An Awesome Tool!', tags: 'typescript, tools', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 4, title: 'F# and My Lameness!', tags: 'F#', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 5, title: 'Who Do You Even Try!?', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 6, title: 'Just one More Time!', tags: 'story', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 7, title: 'Live and Let Live!', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 8, title: 'Nope, Keep it Going!', tags: 'nodejs', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 9, title: 'Surrender Forrender!!', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
 ])
 
 const snippets = new WinJS.Binding.List([
-  { title: 'Generators!', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', language: 'javascript' },
-  { title: 'Promises!', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', language: 'javascript' },
-  { title: 'Typescript Classes!', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', language: 'typescript' },
-  { title: 'Node Streams!', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', language: 'nodejs' }
+  { id: 10, title: 'Generators!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
+  { id: 11, title: 'Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
+  { id: 12, title: 'Typescript Classes!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'typescript' },
+  { id: 13, title: 'Node Streams!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'nodejs' }
 ]);
 
-WinJS.Namespace.define("Application.Home" {
+WinJS.Namespace.define("Application.Home", {
   posts, snippets
 })
 
@@ -42,10 +42,23 @@ export default {
     WinJS.UI.Fragments
       .render('fragments/home/content.html')
       .done((fragment) => element.appendChild(fragment));
+    const entries = document.querySelectorAll('home__entry');
+    for (const entry of entries) {
+      entry.addEventListener('click', this._homeEntryClick.bind(this), false);
+    }
   },
   ready(element, options) {
     this.options = options = Object.assign({}, options);
     WinJS.UI.processAll(element).done();
 
+  },
+  unload() {
+    const entries = document.querySelectorAll('home__entry');
+    for (const entry of entries) {
+      const event = entry.removeEventListener('click', this._homeEntryClick.bind(this));
+    }
+  },
+  _homeEntryClick(entry) {
+    console.log(entry)
   }
 }

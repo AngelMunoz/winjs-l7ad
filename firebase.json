@@ -5,6 +5,22 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source" : "pages/**",
+        "headers" : [ {
+          "key" : "Cache-Control",
+          "value" : "max-age=300"
+        } ]
+      },
+      {
+        "source" : "fragments/**",
+        "headers" : [ {
+          "key" : "Cache-Control",
+          "value" : "max-age=300"
+        } ]
+      }
     ]
   }
 }

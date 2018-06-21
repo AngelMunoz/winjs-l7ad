@@ -1,0 +1,16 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "winjs-l7ad",
+    "scope": "/",
+    "display": "browser",
+    "start_url": "https://winjs-l7ad.firebaseapp.com/",
+    "short_name": "winjs_l7ad",
+    "theme_color": "#26150d",
+    "description": "Tunaxor's WinJS Playsite",
+    "orientation": "natural",
+    "background_color": "#26150d",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": []
+}

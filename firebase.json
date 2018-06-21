@@ -6,20 +6,30 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "headers": [
       {
-        "source" : "pages/**",
-        "headers" : [ {
-          "key" : "Cache-Control",
-          "value" : "max-age=300"
-        } ]
+        "source": "pages/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=300"
+          }
+        ]
       },
       {
-        "source" : "fragments/**",
-        "headers" : [ {
-          "key" : "Cache-Control",
-          "value" : "max-age=300"
-        } ]
+        "source": "fragments/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=300"
+          }
+        ]
       }
     ]
   }

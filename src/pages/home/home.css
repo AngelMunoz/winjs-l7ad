@@ -12,10 +12,13 @@
 
 .home__entry {
     display: block;
-    margin: 20px 2px 2px 2px;
-    padding: 4px 4px 10px 4px;
     border: 1.5px outset #424242;
+    max-width: 500px;
 }
+    .home__listview .win-container {
+        max-width: 500px;
+    }
+
     .home__entry:hover {
         border: 0.5px groove rgb(184, 184, 184);
         border-top: 0;
@@ -33,8 +36,29 @@
         color: #d3d0ce
     }
 
+
 .home__pivot-item {
     min-height: 45vh;
     max-height: 75vh;
     overflow: auto
 }
+
+
+@media only screen and (max-width: 420px) {
+    .home__entry {
+        display: block;
+        border: 1.5px outset #424242;
+        max-width: 300px;
+    }
+
+    .home__listview .win-container {
+        max-width: 300px;
+    }
+    
+    .home__pivot-item {
+        min-height: 45vh;
+        max-height: 170vh;
+        overflow: auto
+    }
+    
+} 

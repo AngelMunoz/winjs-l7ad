@@ -16,7 +16,7 @@ class RouteManager {
 
   definePages(pages = this.routes) {
     for (const page of pages) {
-      WinJS.UI.Pages.define(page.uri, page);
+      WinJS.UI.Pages.define(page.uri, ...page);
     }
   }
 
@@ -33,12 +33,12 @@ class RouteManager {
   /**
    * Find the route we want to navigate to and go to it
    * @param {Event} event
-   */
+   */ 
   navigateTo(event) {
     const target = event.currentTarget;
     const label = target.winControl.label;
     const route = this.routes.find(r => r.label === label);
-    return WinJS.Navigation.navigate(route.uri, route);
+    return WinJS.Navigation.navigate(route.uri, ...route);
   }
 }
 

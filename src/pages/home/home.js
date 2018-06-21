@@ -14,10 +14,10 @@ const posts = new WinJS.Binding.List([
 ])
 
 const snippets = new WinJS.Binding.List([
-  { id: 10, title: 'Generators!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
-  { id: 11, title: 'Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
-  { id: 12, title: 'Typescript Classes!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'typescript' },
-  { id: 13, title: 'Node Streams!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'nodejs' }
+  // { id: 10, title: 'Generators!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
+  // { id: 11, title: 'Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
+  // { id: 12, title: 'Typescript Classes!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'typescript' },
+  // { id: 13, title: 'Node Streams!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'nodejs' }
 ]);
 
 WinJS.Namespace.define("Application.Home", {
@@ -33,32 +33,28 @@ WinJS.Namespace.define("Application.Home", {
 export default {
   uri: 'pages/home/home.html',
   label: 'Home',
-  init(element, options) {
-    /**
-     * Use Fragments Like you would use "Components" in any other app 
-     * just remember these are kind of low level, 
-     * so you might still have to do some fancy stuff by hand
-     **/
-    WinJS.UI.Fragments
-      .render('fragments/home/content.html')
-      .done((fragment) => element.appendChild(fragment));
-    const entries = document.querySelectorAll('home__entry');
-    for (const entry of entries) {
-      entry.addEventListener('click', this._homeEntryClick.bind(this), false);
-    }
-  },
   ready(element, options) {
-    this.options = options = Object.assign({}, options);
-    WinJS.UI.processAll(element).done();
+    options = Object.assign({}, options);
+
+    const listviews = document.querySelectorAll('.home__pivot-item div[data-win-control="WinJS.UI.ListView"]');
+    for (const listview of listviews) {
+      listview.addEventListener("iteminvoked", this._itemInvoked.bind(this), false);
+    }
+    return WinJS.UI.processAll(element);
 
   },
   unload() {
-    const entries = document.querySelectorAll('home__entry');
-    for (const entry of entries) {
-      const event = entry.removeEventListener('click', this._homeEntryClick.bind(this));
+    const listviews = document.querySelectorAll('.home__pivot-item div[data-win-control="WinJS.UI.ListView"]');
+    for (const listview of listviews) {
+      listview.removeEventListener("iteminvoked", this._itemInvoked.bind(this), false);
     }
   },
-  _homeEntryClick(entry) {
-    console.log(entry)
+  async _itemInvoked({ detail }) {
+    try {
+      const { data, index } = await detail.itemPromise;
+      console.log(data, index);
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

@@ -1,5 +1,6 @@
 import 'flexboxgrid/css/flexboxgrid.css'
 import 'winjs/css/ui-dark.css';
+import 'normalize.css/normalize.css'
 import './main.css'
 import './managers/navigation.manager';
 import ApplicationManager, { ON_FIRST_ACTIVATION, ON_READY, ON_ERROR } from "./managers/application.manager";
@@ -12,7 +13,7 @@ import About from './pages/about/about';
 
 
 const routes = [
-  Home, 
+  Home,
   About
 ];
 const router = new Router(routes)
@@ -66,7 +67,7 @@ Events
     });
     // run some error reporting stuff
     AppStorage.writeText('last-error', `Date:${new Date().toJSON()}~\nMessage: ${detail.message}~\nERROR: ${detail.stack}`)
-      .then(() => errorDialog.show(), console.error)
+      .then(() => errorDialog.show().then(() => { console.error(detail) }), console.error)
       .done(({ result }) => result === 'secondary' ?
         window.open(`mailto:email@domain.com?subject=Date:${new Date().toJSON()}~\nMessage: ${detail.message || detail.errorMessage}~&body=ERROR: ${detail.stack || detail.errorMessage}`, 'blank') : undefined);
   });

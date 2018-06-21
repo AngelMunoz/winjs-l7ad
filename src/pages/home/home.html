@@ -15,18 +15,23 @@
       <h2 class="win-h2">App Header</h2>
     </header>
     <article class="row home__content--scrollable">
-      <section class="col-xs-8">
+      <section class="col-xs-12">
         <div data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
           <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'The Most Recent Posts' }">
-            <div data-win-control="WinJS.UI.Repeater" data-win-options="{ data: Application.Home.posts, template: select('.home__entry-template'), onclick: _homeEntryClick }"></div>
+            <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
+              itemDataSource: Application.Home.posts.dataSource, 
+              itemTemplate: select('.home__entry-template'), 
+              layout: { type: WinJS.UI.GridLayout },
+            }"></div>
           </div>
           <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Code Snippets' }">
-            <div data-win-control="WinJS.UI.Repeater" data-win-options="{ data: Application.Home.snippets, template: select('.home__entry-template') }"></div>
+            <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
+              itemDataSource: Application.Home.snippets.dataSource, 
+              itemTemplate: select('.home__entry-template'), 
+              layout: { type: WinJS.UI.ListLayout },
+            }"></div>
           </div>
         </div>
-      </section>
-      <section class="col-xs-4">
-        <h1 class="win-h1">Another Section</h1>
       </section>
     </article>
   </section>

@@ -12,7 +12,7 @@ const {
 
 const instruction = `> main.js + **/*.md`
 
-const workerInstruction = `> workers/worker.js`
+const workerInstruction = `> worker.js`
 
 context(class {
   getConfig(name) {
@@ -110,7 +110,7 @@ task("prod", ['clean', 'copy:html'], async context => {
   context.isProduction = true;
   const fuse = context.getConfig();
   const fuse2 = context.getConfig('worker');
-  fuse.dev();
+  
   fuse.bundle("app")
     .instructions(instruction)
 

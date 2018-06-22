@@ -10,11 +10,13 @@ import StorageManager from './managers/storage.manager';
 
 import Home from './pages/home/home';
 import About from './pages/about/about';
+import PostDetail from './pages/post-detail/post-detail';
 
 
 const routes = [
   Home,
-  About
+  About,
+  PostDetail
 ];
 const router = new Router(routes)
 

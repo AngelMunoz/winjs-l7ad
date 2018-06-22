@@ -1,8 +1,10 @@
 <div class="home__entry-template" data-win-control="WinJS.Binding.Template">
   <div class="home__entry">
-    <div class="entry__resume-title">
-      <h4 class="win-h4" data-win-bind="textContent: title"></h4>
-      <small><span class="entry__resume-tags" data-win-bind="textContent: tags;"></span></small>
+    <div class="entry__resume-title ">
+      <h4 class="win-h4 win-type-interactive win-type-ellipsis" data-win-bind="textContent: title"></h4>
+      <ul class="entry__resume-tag-list" data-win-control="WinJS.UI.Repeater" data-win-options="{data: tags}">
+        <li data-win-bind="textContent: name"></li>
+      </ul>
     </div>
     <p class="entry__resume-content" data-win-bind="textContent: resume;"></p>
   </div>
@@ -10,27 +12,21 @@
 
 <article class="home__content">
   <section class="box">
-    <header class="row">
-      <button data-win-control="WinJS.UI.BackButton"></button>
-      <h2 class="win-h2">App Header</h2>
-    </header>
     <article class="row home__content--scrollable">
-      <section class="col-xs-12">
-        <div data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
-          <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'The Most Recent Posts' }">
-            <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
+      <section data-win-control="WinJS.UI.Pivot" data-win-options="{ selectedIndex: 0 }">
+        <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'The Most Recent Posts' }">
+          <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
               itemDataSource: Application.Home.posts.dataSource, 
+              itemTemplate: select('.home__entry-template'), 
+              layout: { type: WinJS.UI.GridLayout, orientation: 'vertical' },
+            }"></div>
+        </div>
+        <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Code Snippets' }">
+          <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
+              itemDataSource: Application.Home.snippets.dataSource, 
               itemTemplate: select('.home__entry-template'), 
               layout: { type: WinJS.UI.GridLayout },
             }"></div>
-          </div>
-          <div class="home__pivot-item" data-win-control="WinJS.UI.PivotItem" data-win-options="{ 'header': 'Code Snippets' }">
-            <div class="home__listview" data-win-control="WinJS.UI.ListView" data-win-options="{ 
-              itemDataSource: Application.Home.snippets.dataSource, 
-              itemTemplate: select('.home__entry-template'), 
-              layout: { type: WinJS.UI.ListLayout },
-            }"></div>
-          </div>
         </div>
       </section>
     </article>

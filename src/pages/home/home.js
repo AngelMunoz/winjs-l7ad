@@ -1,23 +1,24 @@
 import './home.css'
 import * as WinJS from 'winjs'
+import PostDetail from "../post-detail/post-detail";
 
 const posts = new WinJS.Binding.List([
-  { id: 1, title: 'UWP Apps in Javascript!', tags: 'javascript, uwp', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 2, title: 'Javascript Promises!', tags: 'javascript, promises', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 3, title: 'Typescript Such An Awesome Tool!', tags: 'typescript, tools', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 4, title: 'F# and My Lameness!', tags: 'F#', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 5, title: 'Who Do You Even Try!?', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 6, title: 'Just one More Time!', tags: 'story', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 7, title: 'Live and Let Live!', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 8, title: 'Nope, Keep it Going!', tags: 'nodejs', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
-  { id: 9, title: 'Surrender Forrender!!', tags: 'discuss', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper. Sed blandit elit neque, eu blandit purus scelerisque ultricies. Donec et iaculis odio. Praesent tincidunt, sapien sed consequat laoreet, nunc enim tristique nunc, id rutrum tortor est sed erat.' },
+  { id: 1, title: 'UWP Apps in Javascript!', tags: [{ name: 'javascript' }, { name: 'uwp' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 2, title: 'Javascript Promises!', tags: [{ name: 'javascript' }, { name: 'promises' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 3, title: 'Typescript Such An Awesome Tool!', tags: [{ name: 'typescript' }, { name: 'tools' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 4, title: 'F# and My Lameness!', tags: [{ name: 'F#' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 5, title: 'Who Do You Even Try!?', tags: [{ name: 'discuss' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 6, title: 'Just one More Time!', tags: [{ name: 'story' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 7, title: 'Live and Let Live!', tags: [{ name: 'discuss' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 8, title: 'Nope, Keep it Going!', tags: [{ name: 'nodejs' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
+  { id: 9, title: 'Surrender Forrender!!', tags: [{ name: 'discuss' }], resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis felis eu eros egestas semper.' },
 ])
 
 const snippets = new WinJS.Binding.List([
-  // { id: 10, title: 'Generators!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
-  // { id: 11, title: 'Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'javascript' },
-  // { id: 12, title: 'Typescript Classes!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'typescript' },
-  // { id: 13, title: 'Node Streams!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: 'nodejs' }
+  { id: 10, title: 'Generators!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: [{ name: 'javascript' }] },
+  { id: 11, title: 'Promises!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: [{ name: 'javascript' }] },
+  { id: 12, title: 'Typescript Classes!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: [{ name: 'typescript' }] },
+  { id: 13, title: 'Node Streams!', resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', tags: [{ name: 'nodejs' }] }
 ]);
 
 WinJS.Namespace.define("Application.Home", {
@@ -52,7 +53,12 @@ export default {
   async _itemInvoked({ detail }) {
     try {
       const { data, index } = await detail.itemPromise;
-      console.log(data, index);
+
+      // TODO: replace with an http find method
+      const post = await Promise.resolve(posts.filter(p => p.id === data.id).pop())
+
+      const pageData = Object.assign({}, PostDetail, { post })
+      WinJS.Navigation.navigate(PostDetail.uri, ...pageData);
     } catch (error) {
       console.error(error)
     }

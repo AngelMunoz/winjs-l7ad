@@ -6,7 +6,6 @@
     }
 
     .home__content--scrollable {
-        max-height: 100vh;
         overflow-y: auto;
     }
 
@@ -16,8 +15,9 @@
     max-width: 500px;
 }
     .home__listview .win-container {
-        max-width: 500px;
+        max-width: 250px;
     }
+    
 
     .home__entry:hover {
         border: 0.5px groove rgb(184, 184, 184);
@@ -38,15 +38,16 @@
 
 
 .home__pivot-item {
-    min-height: 45vh;
-    max-height: 75vh;
-    overflow: auto
+    height: 60vw;
+    overflow: auto;
 }
+    .home__listview.win-listview {
+        height: 40vw;
+        overflow-y: auto;
+    }
 
-
-@media only screen and (max-width: 420px) {
+@media (max-width: 420px) {
     .home__entry {
-        display: block;
         border: 1.5px outset #424242;
         max-width: 300px;
     }
@@ -56,8 +57,7 @@
     }
     
     .home__pivot-item {
-        min-height: 45vh;
-        max-height: 170vh;
+        max-width: 400px;
         overflow: auto
     }
     

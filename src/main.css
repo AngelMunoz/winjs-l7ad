@@ -50,3 +50,12 @@
 .win-pivot {
     height: 100vh;
 }
+
+.back-button {
+    margin-left: 10px;
+}
+
+.win-disposable .pagecontrol {
+    overflow: auto;
+    max-height: 95vh;
+}

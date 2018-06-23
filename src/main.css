@@ -1,33 +1,34 @@
 .application--background__default {
-    background: linear-gradient(236deg, #4e3e23, #3a240e, #000000);
+    background: radial-gradient(ellipse at top,  #000000, #3f3021, #ffffff38, #000000),
+                radial-gradient(ellipse at bottom,  #000000, #3f3021, #ffffff38, #000000);
     background-size: 600% 600%;
 
-    -webkit-animation: AppBackgroundGradient 31s ease infinite;
-    -moz-animation: AppBackgroundGradient 31s ease infinite;
-    -o-animation: AppBackgroundGradient 31s ease infinite;
-    animation: AppBackgroundGradient 31s ease infinite;
+    -webkit-animation: AppBackgroundGradient 40s ease-in-out infinite;
+    -moz-animation: AppBackgroundGradient 40s ease-out infinite;
+    -o-animation: AppBackgroundGradient 40s ease-in infinite;
+    animation: AppBackgroundGradient 40s ease infinite;
 
 }
 
 @-webkit-keyframes AppBackgroundGradient {
-    0%{background-position:87% 0%}
+    0%{background-position:45% 0%}
     50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
+    100%{background-position:21% 0%}
 }
 @-moz-keyframes AppBackgroundGradient {
-    0%{background-position:87% 0%}
+    0%{background-position:45% 0%}
     50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
+    100%{background-position:21% 0%}
 }
 @-o-keyframes AppBackgroundGradient {
-    0%{background-position:87% 0%}
+    0%{background-position:45% 0%}
     50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
+    100%{background-position:21% 0%}
 }
 @keyframes AppBackgroundGradient {
-    0%{background-position:87% 0%}
+    0%{background-position:45% 0%}
     50%{background-position:14% 100%}
-    100%{background-position:87% 0%}
+    100%{background-position:21% 0%}
 }
 
 /* width */
@@ -62,4 +63,33 @@
 
 .post-footer__media__container {
     margin-bottom: 4rem;
+}
+
+    .post-footer__media__button.win-button {
+        background-color: #4b3521;
+    }
+
+.post-footer__media__menu {
+    background-color: #4b3521;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover,
+code:hover,
+.post-footer__media__menu:hover,
+.app-header-title:hover,
+.win-back:hover,
+.post-footer__media__button.win-button:hover {
+    color: teal;
+}
+
+.win-splitview.win-splitview-pane-closed.win-splitview-placementleft .win-splitview-pane {
+    background-color: #4b3521;
+}
+.win-splitview.win-splitview-pane-opened.win-splitview-placementleft .win-splitview-pane {
+    background-color: #4b3521;
 }

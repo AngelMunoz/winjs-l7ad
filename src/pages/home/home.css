@@ -9,6 +9,16 @@
         overflow-y: auto;
     }
 
+    .home__content .win-itembox:hover {
+        background-color: #0000007d;
+        color: #05a093;
+    }
+
+    .home__content .win-itembox {
+        background-color: #00000066;
+    }
+
+
 .home__entry {
     display: block;
     border: 1.5px outset #424242;

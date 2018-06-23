@@ -11,7 +11,7 @@ export const ON_READY = "on:ready";
 export const ON_LOADED = "on:loaded";
 export const ON_START = "on:start";
 export const ON_STOP = "on:stop";
-
+export const ON_TOGGLE_LOAD = "on:toggle:load";
 
 class ApplicationManager {
 

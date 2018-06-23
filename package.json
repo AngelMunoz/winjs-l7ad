@@ -14,7 +14,9 @@
     "flexboxgrid": "^6.3.1",
     "fuse-box": "^3.2.2",
     "gulp": "^3.9.1",
+    "mdi": "^2.2.43",
     "normalize.css": "^8.0.0",
+    "prismjs": "^1.15.0",
     "winjs": "4.4.3"
   },
   "devDependencies": {

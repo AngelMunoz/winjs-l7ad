@@ -59,3 +59,7 @@
     overflow: auto;
     max-height: 95vh;
 }
+
+.post-footer__media__container {
+    margin-bottom: 4rem;
+}

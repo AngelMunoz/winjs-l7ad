@@ -1,9 +1,17 @@
-import 'flexboxgrid/css/flexboxgrid.css'
+import 'flexboxgrid/css/flexboxgrid.css';
 import 'winjs/css/ui-dark.css';
-import 'normalize.css/normalize.css'
-import './main.css'
+import 'prismjs/themes/prism.css';
+import 'normalize.css/normalize.css';
+import 'mdi/css/materialdesignicons.css';
+import './main.css';
 import './managers/navigation.manager';
-import ApplicationManager, { ON_FIRST_ACTIVATION, ON_READY, ON_ERROR } from "./managers/application.manager";
+import 'prismjs';
+import ApplicationManager, {
+  ON_FIRST_ACTIVATION,
+  ON_READY,
+  ON_ERROR,
+  ON_TOGGLE_LOAD
+} from "./managers/application.manager";
 import Router from "./managers/route.manager";
 import Events, { APPLICATION } from "./managers/event.manager";
 import StorageManager from './managers/storage.manager';
@@ -25,6 +33,7 @@ const router = new Router(routes)
 export const AppManager = new ApplicationManager();
 Events
   .get(APPLICATION)
+  .on(ON_TOGGLE_LOAD, () => document.querySelector('.loading').classList.toggle('hidden'))
   .once(ON_FIRST_ACTIVATION, function (args) {
     // register routes
     router.definePages();
@@ -43,6 +52,8 @@ Events
         const commands = document.querySelectorAll('.splitview-commands div[data-win-control="WinJS.UI.SplitViewCommand"]');
         const filteredRoutes = Array.from(commands).filter(command => !!router.routes.find(r => r.label === command.winControl.label));
         router.addRouteListeners(filteredRoutes);
+        document.querySelector('#main-splitview').classList.toggle('hidden');
+        Events.get(APPLICATION).emit(ON_TOGGLE_LOAD);
         return WinJS.Navigation.navigate(Home.uri, Home)
       }));
   });
@@ -69,7 +80,7 @@ Events
     });
     // run some error reporting stuff
     AppStorage.writeText('last-error', `Date:${new Date().toJSON()}~\nMessage: ${detail.message}~\nERROR: ${detail.stack}`)
-      .then(() => errorDialog.show().then(() => { console.error(detail) }), console.error)
+      .then(() => errorDialog.show().then(() => console.error(detail)), console.error)
       .done(({ result }) => result === 'secondary' ?
         window.open(`mailto:email@domain.com?subject=Date:${new Date().toJSON()}~\nMessage: ${detail.message || detail.errorMessage}~&body=ERROR: ${detail.stack || detail.errorMessage}`, 'blank') : undefined);
   });

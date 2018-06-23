@@ -81,3 +81,18 @@ In IE/Edge, you can apply the `win-progress-ring` class to a `<progress>` to get
 
 ### Range
 Use the `win-slider` class on `<input type='range'>` elements to apply Windows styling. In IE, you can also add the `win-vertical` class to create a vertical slider. 
+
+```js
+function registerApp(app) {
+    this.register(app);
+}
+```
+
+```python
+class Point:
+    pass
+```
+
+```csharp
+Console.WriteLine('Stuff')
+```

@@ -32,7 +32,8 @@ context(class {
             CSSPlugin(),
             CSSResourcePlugin(),
             MarkdownPlugin({
-              useDefault: true
+              useDefault: true,
+              sanitize: false
             }),
             WebIndexPlugin({
               template: './index.html',
@@ -94,13 +95,11 @@ task("dev", ['clean', 'copy:html'], async context => {
   const fuse2 = context.getConfig('worker');
   fuse.dev();
   fuse.bundle("app")
-    .hmr({ reload: true })
-    .watch('src/**/*.js')
+    .watch('src**')
     .instructions(instruction)
 
   fuse2.bundle("worker")
-    .hmr({ reload: true })
-    .watch('workers/**/*.js')
+    .watch('workers**')
     .instructions(workerInstruction)
 
   await Promise.all([fuse.run(), fuse2.run()])

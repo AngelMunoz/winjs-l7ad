@@ -2,7 +2,6 @@ import 'flexboxgrid/css/flexboxgrid.css';
 import 'winjs/css/ui-dark.css';
 import 'prismjs/themes/prism.css';
 import 'normalize.css/normalize.css';
-import 'mdi/css/materialdesignicons.css';
 import './main.css';
 import './managers/navigation.manager';
 import 'prismjs';
